@@ -1,0 +1,10 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h1>На странице {{ blogs.count }} блога</h1>
+{% for blog in blogs %}
+<a href="{% url 'blog:show_blog' blog.id %}"><h2>{{ blog.title }}</h2></a>
+    <p>{{ blog.description| truncatechars:100 }}</p>
+    <p>{{ blog.date}}</p>
+{% endfor %}
+{% endblock content %}
